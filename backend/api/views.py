@@ -19,9 +19,21 @@ class TodoView(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def perform_create(self, serializer):
+        # add request.user as an author after the serializer validated.
         user = self.request.user
         serializer.save(author=user)
 
     def get_queryset(self):
+        # return user created todos only
         user = self.request.user
         return Todo.objects.filter(author=user)
+
+class TodoDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = TodoSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        # delete, update and retrieve only todos created by the user.
+        user = self.request.user
+        return Todo.objects.filter(author=user)
+
