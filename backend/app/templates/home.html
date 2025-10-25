@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo API Documentation</title>
+    <style>
+        body {
+            font-family: "Inter", Arial, sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #1e293b;
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 2px solid #334155;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            color: #38bdf8;
+        }
+        main {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background-color: #1e293b;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+        }
+        section {
+            margin-bottom: 2rem;
+        }
+        h2 {
+            color: #38bdf8;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 0.5rem;
+        }
+        code {
+            background-color: #334155;
+            padding: 0.3rem 0.5rem;
+            border-radius: 5px;
+            color: #e2e8f0;
+            font-family: "Courier New", monospace;
+        }
+        .endpoint {
+            margin-top: 1rem;
+            background-color: #0f172a;
+            border-left: 4px solid #38bdf8;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        .method {
+            font-weight: bold;
+            color: #22c55e;
+        }
+        .body-example {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            padding: 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-top: 0.5rem;
+            white-space: pre-wrap;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            border-top: 1px solid #334155;
+        }
+        a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Todo API Documentation</h1>
+        <p>A simple REST API built with Django REST Framework & JWT Authentication</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Authentication</h2>
+
+            <div class="endpoint">
+                <p><span class="method">POST</span> <code>/api/signup/</code></p>
+                <p>Register a new user with the following fields:</p>
+                <div class="body-example">
+{
+    "first_name": "Elyas",
+    "last_name": "Tadesse",
+    "username": "elyas",
+    "email": "elyas@gmail.com",
+    "password": "yourpassword"
+}
+                </div>
+                <p><strong>Note:</strong> <code>username</code> and <code>password</code> are required fields.</p>
+            </div>
+
+            <div class="endpoint">
+                <p><span class="method">POST</span> <code>/api/token/</code></p>
+                <p>Obtain access and refresh tokens using valid credentials.</p>
+                <div class="body-example">
+{
+    "username": "elyas",
+    "password": "yourpassword"
+}
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <p><span class="method">POST</span> <code>/api/token/refresh/</code></p>
+                <p>Get a new access token using a valid refresh token.</p>
+                <div class="body-example">
+{
+    "refresh": "your_refresh_token_here"
+}
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Todos</h2>
+
+            <div class="endpoint">
+                <p><span class="method">GET / POST</span> <code>/api/todos/</code></p>
+                <p>Retrieve all todos for the authenticated user or create a new one.</p>
+                <p><strong>POST body example:</strong></p>
+                <div class="body-example">
+{
+    "title": "Projects",
+    "content": "Build many projects using DRF."
+}
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <p><span class="method">GET / PUT / DELETE</span> <code>/api/todos/&lt;int:pk&gt;/</code></p>
+                <p>Retrieve, update, or delete a specific todo by its ID.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built by <strong>Mieraf</strong> | Powered by Django REST Framework & JWT</p>
+    </footer>
+</body>
+</html>
