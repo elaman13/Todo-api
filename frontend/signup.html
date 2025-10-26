@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sign Up</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#4A90E2",
+              "background-light": "#F4F7F9",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+      
+    </script>
+
+    <style>
+      .form-input {
+        transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      }
+      .form-input:focus {
+        border-color: #4a90e2;
+        box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+        outline: none;
+      }
+
+      @keyframes slide-in {
+            0% { transform: translateX(100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fade-out {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .animate-slide-in { animation: slide-in 0.5s ease-out forwards; }
+        .animate-fade-out { animation: fade-out 0.5s ease-in forwards; }
+
+    </style>
+  </head>
+
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-[#333333] dark:text-slate-200"
+  >
+  <div id="toast-container" class="fixed top-5 right-5 flex flex-col gap-2 z-50"></div>
+    <div
+      class="relative flex min-h-screen w-full flex-col items-center justify-center p-4"
+    >
+      <div class="w-full max-w-md">
+        <!-- Logo and App Name -->
+        <div class="mb-8 flex flex-col items-center">
+          <div class="text-primary size-8">
+            <svg
+              fill="none"
+              viewBox="0 0 48 48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                fill="currentColor"
+                fill-rule="evenodd"
+                d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"
+              ></path>
+            </svg>
+          </div>
+          <h2
+            class="text-[#333333] dark:text-slate-50 mt-2 text-xl font-bold leading-tight tracking-[-0.015em]"
+          >
+            WebApp
+          </h2>
+        </div>
+
+        <!-- Form Container -->
+        <div
+          class="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-background-dark/50 p-6 sm:p-8 shadow-sm"
+        >
+          <!-- Page Heading -->
+          <div class="mb-6 text-center">
+            <p
+              class="text-[#333333] dark:text-slate-50 text-3xl font-black leading-tight tracking-[-0.033em]"
+            >
+              Create Your Account
+            </p>
+          </div>
+
+          <form id='signup-form' class="flex flex-col gap-4">
+            <!-- First and Last Name -->
+            <div class="flex flex-col gap-4 sm:flex-row">
+              <label class="flex flex-col min-w-0 flex-1">
+                <p
+                  class="text-[#333333] dark:text-slate-200 text-sm font-medium leading-normal pb-2"
+                >
+                  First Name
+                </p>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#333333] dark:text-slate-50 focus:outline-0 focus:ring-0 border border-[#cfdbe7] dark:border-slate-600 bg-background-light dark:bg-slate-800 h-12 placeholder:text-[#777777] dark:placeholder:text-slate-400 px-4 text-base font-normal leading-normal"
+                  placeholder="Enter your first name"
+                  type="text"
+                  value="" name="first_name"
+                />
+              </label>
+
+              <label class="flex flex-col min-w-0 flex-1">
+                <p
+                  class="text-[#333333] dark:text-slate-200 text-sm font-medium leading-normal pb-2"
+                >
+                  Last Name
+                </p>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#333333] dark:text-slate-50 focus:outline-0 focus:ring-0 border border-[#cfdbe7] dark:border-slate-600 bg-background-light dark:bg-slate-800 h-12 placeholder:text-[#777777] dark:placeholder:text-slate-400 px-4 text-base font-normal leading-normal"
+                  placeholder="Enter your last name"
+                  type="text"
+                  value="" name="last_name"
+                />
+              </label>
+            </div>
+
+            <!-- Username -->
+            <label class="flex flex-col min-w-40 flex-1">
+              <p
+                class="text-[#333333] dark:text-slate-200 text-sm font-medium leading-normal pb-2"
+              >
+                Username<span class="text-[#D0021B] ml-1">*</span>
+              </p>
+              <input
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#333333] dark:text-slate-50 focus:outline-0 focus:ring-0 border border-[#cfdbe7] dark:border-slate-600 bg-background-light dark:bg-slate-800 h-12 placeholder:text-[#777777] dark:placeholder:text-slate-400 px-4 text-base font-normal leading-normal"
+                placeholder="Enter your username"
+                type="text"
+                value="" name="username"
+              />
+              <!-- Example validation message (hidden by default) -->
+              <!-- <p class="text-[#D0021B] text-xs font-normal mt-1">Username is already taken.</p> -->
+            </label>
+
+            <!-- Email -->
+            <label class="flex flex-col min-w-40 flex-1">
+              <p
+                class="text-[#333333] dark:text-slate-200 text-sm font-medium leading-normal pb-2"
+              >
+                Email
+              </p>
+              <input
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#333333] dark:text-slate-50 focus:outline-0 focus:ring-0 border border-[#cfdbe7] dark:border-slate-600 bg-background-light dark:bg-slate-800 h-12 placeholder:text-[#777777] dark:placeholder:text-slate-400 px-4 text-base font-normal leading-normal"
+                placeholder="Enter your email address"
+                type="email"
+                value="" name="email"
+              />
+            </label>
+
+            <!-- Password -->
+            <label class="flex flex-col min-w-40 flex-1">
+              <p
+                class="text-[#333333] dark:text-slate-200 text-sm font-medium leading-normal pb-2"
+              >
+                Password<span class="text-[#D0021B] ml-1">*</span>
+              </p>
+              <input
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#333333] dark:text-slate-50 focus:outline-0 focus:ring-0 border border-[#cfdbe7] dark:border-slate-600 bg-background-light dark:bg-slate-800 h-12 placeholder:text-[#777777] dark:placeholder:text-slate-400 px-4 text-base font-normal leading-normal"
+                placeholder="Enter your password"
+                type="password"
+                value="" name="password"
+              />
+            </label>
+
+            <!-- Sign Up Button -->
+            <button
+              class="flex mt-4 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-4 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-opacity duration-200"
+            >
+              <span class="truncate">Sign Up</span>
+            </button>
+          </form>
+
+          <!-- Helper Text/Link -->
+          <div class="mt-6 text-center">
+            <p class="text-sm text-[#777777] dark:text-slate-400">
+              Already have an account?
+              <a
+                class="font-medium text-primary hover:underline"
+                href="login.html"
+              >
+                Log In
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="signup.js"></script>
+  </body>
+</html>

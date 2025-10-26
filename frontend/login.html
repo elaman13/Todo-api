@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#3B82F6",
+            "background-light": "#F4F6F8",
+            "background-dark": "#101922",
+            "text-light": "#1F2937",
+            "text-dark": "#F4F6F8"
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col items-center justify-center p-4">
+<div class="w-full max-w-md">
+<div class="flex flex-col items-center gap-4 mb-8">
+<svg class="h-10 w-10 text-primary" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+<h1 class="text-text-light dark:text-text-dark text-3xl font-bold tracking-tight">Sign In</h1>
+</div>
+<div class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm">
+<form method="post" id='login-form' class="flex flex-col gap-6">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal pb-2">Username</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark focus:border-primary h-12 placeholder:text-slate-400 dark:placeholder:text-slate-500 px-3 text-base font-normal leading-normal" placeholder="username" type="text" value="" name="username"/>
+</label>
+<div class="flex flex-col gap-2">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-text-light dark:text-text-dark text-sm font-medium leading-normal pb-2">Password</p>
+<div class="flex w-full flex-1 items-stretch rounded-lg">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-light dark:text-text-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark focus:border-primary h-12 placeholder:text-slate-400 dark:placeholder:text-slate-500 p-3 rounded-r-none border-r-0 pr-2 text-base font-normal leading-normal" placeholder="Enter your password" type="password" name="password" value=""/>
+<button aria-label="Toggle password visibility" class="text-slate-400 dark:text-slate-500 flex border border-slate-300 dark:border-slate-700 bg-background-light dark:bg-background-dark items-center justify-center px-3 rounded-r-lg border-l-0 hover:text-primary dark:hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/50" type="button">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+</div>
+</label>
+<div class="flex justify-end">
+<a class="text-sm font-medium text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-900 focus:ring-primary rounded-sm" href="#">Forgot Password?</a>
+</div>
+</div>
+<button class="flex min-w-[84px] w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-4 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-slate-900 focus:ring-primary transition-colors">
+<span class="truncate">Login</span>
+</button>
+</form>
+</div>
+<p class="mt-8 text-center text-sm text-slate-600 dark:text-slate-400">
+        Don't have an account? <a class="font-bold text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background-light dark:focus:ring-offset-background-dark focus:ring-primary rounded-sm" href="signup.html">Sign Up</a>
+</p>
+</div>
+</div>
+<script src="login.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</body></html>
